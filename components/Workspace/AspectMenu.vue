@@ -1,13 +1,7 @@
 <script setup>
-import aspects from '~/templates/aspects.js'
-
-const { template } = defineProps({
-  template: { type: Object, required: true }
-})
-
-const aspect = useState('aspect', () => aspects[template.aspects[0]])
-
-const availableAspects = template.aspects.map(a => aspects[a])
+const template = useTemplate()
+const { aspects, aspect } = useAspect()
+const availableAspects = template.value.aspects.map(a => aspects[a])
 </script>
 
 <template>

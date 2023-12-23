@@ -1,18 +1,19 @@
 <script setup>
-import templates from '~/templates/templates.js'
-const route = useRoute()
-const template = computed(() => templates.find(t => t.id === route.params.template))
+const template = useTemplate()
 </script>
 
 <template>
-  <nav>
+  <nav class="grid grid-cols-4 items-end mb-6">
     <NuxtLink to="/">
       <LogosEfa />
     </NuxtLink>
-    <div v-if="template">
-      {{ template.name }}
-    </div>
     <div>
+      <Component v-if="template" :is="`${template.id}Icon`" />
+    </div>
+    <div class="text-xl font-bold leading-none">
+      <span v-if="template">{{ template.name }}</span>
+    </div>
+    <div class="text-xl text-right leading-none">
       Banner Generator
     </div>
   </nav>

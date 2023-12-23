@@ -1,26 +1,22 @@
 export default [
   {
-    id: 'event',
+    id: 'Event',
     name: 'Event',
-    aspects: ['11', '45', '916', '169'],
-    icon: ''
+    aspects: ['11', '45', '916', '169']
   },
   {
-    id: 'speakers',
+    id: 'Speakers',
     name: 'Event with speakers',
-    aspects: ['11', '45', '916', '169'],
-    icon: ''
+    aspects: ['11', '45', '916', '169']
   },
   {
-    id: 'quote',
+    id: 'Quote',
     name: 'Quote',
-    aspects: ['11', '45', '916', '169'],
-    icon: ''
+    aspects: ['11', '45', '916']
   },
   {
-    id: 'slogan',
+    id: 'Slogan',
     name: 'Slogan',
-    aspects: ['11', '45', '916', '169'],
-    icon: ''
+    aspects: ['11', '45', '916']
   }
 ]

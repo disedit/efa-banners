@@ -3,14 +3,14 @@
 </script>
 
 <template>
-  <div>
+  <div class="p-6">
     <AppNav />
 
     <slot />
   </div>
 </template>
 
-<style>
+<style lang="scss">
 @font-face {
   font-family: "Franklin Gothic Std";
   src:
@@ -23,5 +23,9 @@
   src:
     url('~/assets/fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype-variations');
   font-weight: 1 999;
+}
+
+:root {
+  --nav-safe-area: 4.85rem;
 }
 </style>

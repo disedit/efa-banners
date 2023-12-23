@@ -1,20 +1,34 @@
 <script setup>
-import templates from '~/templates/templates.js'
-import { pascalCase } from 'change-case'
+const template = useTemplate()
+const { aspect, aspects } = useAspect()
 
-/* Get template */
-const { params } = useRoute()
-const template = computed(() => templates.find(t => t.id === params.template))
-const templateId = computed(() => pascalCase(template.value.id))
+watchEffect(() => {
+  aspect.value = aspects[template.value.aspects[0]]
+})
 </script>
 
 <template>
-  <main>
-    <WorkspaceAspectMenu :template="template" />
-  
-    <Component :is="`${templateId}Pane`" />
-    <Component :is="`${templateId}Canvas`" />
-
-    <WorkspaceDownload />
+  <main class="workspace grid grid-cols-4">
+    <div class="border border-white border-r-0">
+      <Component :is="`${template.id}Pane`" />
+    </div>
+    <div class="col-span-3 border border-white flex flex-col">
+      <div class="flex border-b border-white p-3 gap-3">
+        <WorkspaceAspectMenu class="w-full" />
+        <WorkspaceDownload />
+      </div>
+      <div class="h-full">
+        <CanvasContainer>
+          <pre>{{ template }}</pre>
+          <Component :is="`${template.id}Canvas`" />
+        </CanvasContainer>
+      </div>
+    </div>
   </main>
 </template>
+
+<style lang="scss" scoped>
+.workspace {
+  height: calc(100vh - var(--nav-safe-area) - 2rem);
+}
+</style>

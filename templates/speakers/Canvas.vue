@@ -1,5 +1,5 @@
 <script setup>
-const banner = useState('event')
+const banner = useState('speakers')
 </script>
 
 <template>
