@@ -6,7 +6,8 @@ defineProps({
 </script>
 
 <template>
-  <UFormGroup :label="label" :name="name" class="p-3 border-b border-gray-500">
+  <div :label="label" class="p-3 border-b border-gray-500">
+    <span class="block text-sm text-gray-500 mb-3">{{ label }}</span>
     <slot />
-  </UFormGroup>
+  </div>
 </template> 

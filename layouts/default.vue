@@ -27,5 +27,10 @@
 
 :root {
   --nav-safe-area: 4.85rem;
+  --purple: #652B80;
+  --orange: #FB7959;
+  --beige: #E9D5CA;
+  --black: #000;
+  --white: #fff;
 }
 </style>

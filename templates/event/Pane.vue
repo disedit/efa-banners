@@ -8,7 +8,9 @@ const banner = useState('event', () => ({
   country: '',
   disposition: 0,
   color: 'purple',
-  textOnImage: false
+  textOnImage: false,
+  accentOnTitle: false,
+  showForAll: true
 }))
 </script>
 
@@ -22,17 +24,23 @@ const banner = useState('event', () => ({
       <PaneDateTime />
       <PaneLogos /> and <PaneMedia />
     -->
-    <PaneField label="Title" name="title">
-      <UInput v-model="banner.title" />
+    <UFormGroup label="Title" name="title">
+      <UTextarea autoresize v-model="banner.title" placeholder="Title of the event" :rows="1" />
+    </UFormGroup>
+    <UFormGroup label="Subtitle" name="subtitle">
+      <UTextarea autoresize v-model="banner.subtitle" :rows="1" />
+    </UFormGroup>
+    <PaneField label="Color">
+      <PaneColors v-model="banner.color" name="color" />
     </PaneField>
-    <PaneField label="Subtitle" name="subtitle">
-      <UInput v-model="banner.subtitle" />
-    </PaneField>
-    <PaneField label="Color" name="date">
-      <PaneColors v-model="banner.color" />
-    </PaneField>
-    <PaneField label="Text on top of picture" name="date">
+    <PaneToggle label="Text on top of picture" borderless>
       <UToggle v-model="banner.textOnImage" />
-    </PaneField>
+    </PaneToggle>
+    <PaneToggle label="Accent color on title" borderless>
+      <UToggle v-model="banner.accentOnTitle" />
+    </PaneToggle>
+    <PaneToggle label="Show For All logo">
+      <UToggle v-model="banner.showForAll" />
+    </PaneToggle>
   </aside>
 </template>

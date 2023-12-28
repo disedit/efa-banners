@@ -14,6 +14,8 @@ export default <Partial<Config>>{
         ]
       },
       colors: {
+        beige: '#E9D5CA',
+        orange: '#FB7959',
         purple: {
           50: '#faf6fd',
           100: '#f4ebfc',
@@ -21,7 +23,7 @@ export default <Partial<Config>>{
           300: '#dab7f0',
           400: '#c48ce6',
           500: '#aa5fd6',
-          600: '#8e3fba',
+          600: '#652B80',
           700: '#77319a',
           800: '#652b80',
           900: '#542768',
