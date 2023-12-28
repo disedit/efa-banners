@@ -6,7 +6,7 @@ const banner = useState('event', () => ({
   venue: '',
   municipality: '',
   country: '',
-  disposition: 0,
+  disposition: 'top',
   color: 'purple',
   textOnImage: false,
   accentOnTitle: false,
@@ -17,13 +17,23 @@ const banner = useState('event', () => ({
 <template>
   <aside>
     <!--
-      <PaneColors ?>
       <PaneRadioButtons />
       <PanePicture />
       <PanePicturePosition />
       <PaneDateTime />
       <PaneLogos /> and <PaneMedia />
     -->
+    <PaneField label="Layout">
+      <PaneRadioButtons
+        v-model="banner.disposition"
+        :options="[
+          { label: 'Top', value: 'top' },
+          { label: 'Bottom', value: 'bottom' },
+          { label: 'Left', value: 'left' },
+          { label: 'Right', value: 'right' }
+        ]"
+      />
+    </PaneField>
     <UFormGroup label="Title" name="title">
       <UTextarea autoresize v-model="banner.title" placeholder="Title of the event" :rows="1" />
     </UFormGroup>
