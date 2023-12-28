@@ -7,7 +7,7 @@ export default [
   {
     id: 'Speakers',
     name: 'Event with speakers',
-    aspects: ['11', '45', '916', '169']
+    aspects: ['11', '45', '916']
   },
   {
     id: 'Quote',

@@ -9,11 +9,11 @@ watchEffect(() => {
 
 <template>
   <main class="workspace grid grid-cols-4">
-    <div class="border border-white border-r-0">
+    <div class="border border-gray-500 border-r-0 overflow-y-auto">
       <Component :is="`${template.id}Pane`" />
     </div>
-    <div class="col-span-3 border border-white flex flex-col">
-      <div class="flex border-b border-white p-3 gap-3">
+    <div class="col-span-3 border border-gray-500 flex flex-col">
+      <div class="flex border-b border-gray-500 p-3 gap-3">
         <WorkspaceAspectMenu class="w-full" />
         <WorkspaceDownload />
       </div>

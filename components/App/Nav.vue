@@ -8,7 +8,7 @@ const template = useTemplate()
       <LogosEfa />
     </NuxtLink>
     <div>
-      <Component v-if="template" :is="`${template.id}Icon`" />
+      <Component v-if="template" :is="`${template.id}Icon`" class="h-7 w-7" />
     </div>
     <div class="text-xl font-bold leading-none">
       <span v-if="template">{{ template.name }}</span>

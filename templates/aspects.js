@@ -1,8 +1,9 @@
 export default {
   '11': {
+    id: '11',
     name: '1:1',
     icon: 'square',
-    description: 'Instagram / Facebook',
+    description: 'Instagram / Facebook / X / WhatsApp',
     width: 720,
     height: 720,
     downloadScale: 2,
@@ -13,8 +14,9 @@ export default {
     ratio: 1
   },
   '45': {
+    id: '45',
     name: '4:5',
-    icon: 'square',
+    icon: 'vertical',
     description: 'Instagram',
     width: 576,
     height: 720,
@@ -26,8 +28,9 @@ export default {
     ratio: 4 / 5
   },
   '916': {
+    id: '916',
     name: '9:16',
-    icon: 'mobile-android',
+    icon: 'story',
     description: 'Story',
     width: 405,
     height: 720,
@@ -39,8 +42,9 @@ export default {
     ratio: 9 / 16
   },
   '169': {
+    id: '169',
     name: '16:9',
-    icon: 'rectangle-landscape',
+    icon: 'landscape',
     description: 'Facebook Event Cover',
     width: 720,
     height: 405,
