@@ -3,6 +3,7 @@ export default defineAppConfig({
     primary: 'purple',
     gray: 'zinc',
     input: {
+      placeholder: "placeholder-gray-400 dark:placeholder-gray-700",
       size: {
         md: 'text-lg'
       },
@@ -13,6 +14,7 @@ export default defineAppConfig({
       }
     },
     textarea: {
+      placeholder: "placeholder-gray-400 dark:placeholder-gray-700",
       size: {
         md: 'text-lg'
       },

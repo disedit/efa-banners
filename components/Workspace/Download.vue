@@ -28,7 +28,7 @@ async function download () {
 
 <template>
   <div>
-    <UButton icon="i-heroicons-arrow-down-tray" @click="download" class="font-bold">
+    <UButton icon="i-heroicons-arrow-down-tray" @click="download" color="purple" class="font-bold">
       Download
     </UButton>
   </div>

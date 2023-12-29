@@ -1,5 +1,9 @@
 <script setup>
 import templates from '~/templates/templates.js'
+
+useHead({
+  title: "EFA Banner Generator"
+})
 </script>
 
 <template>

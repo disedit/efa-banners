@@ -18,7 +18,7 @@ const selected = computed({
 </script>
 
 <template>
-  <div class="flex gap-3 -mt-1 mb-1">
+  <div class="flex gap-3 -mt-1 mb-2">
     <label
       v-for="color in colors"
       :key="color"

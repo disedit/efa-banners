@@ -5,6 +5,10 @@ const { aspect, aspects } = useAspect()
 watchEffect(() => {
   aspect.value = aspects[template.value.aspects[0]]
 })
+
+useHead({
+  title: `${template.value.name} - EFA Banner Generator`
+})
 </script>
 
 <template>
