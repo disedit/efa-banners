@@ -41,7 +41,7 @@ function scaleBanner() {
   <div class="flex items-center justify-center p-10 h-full overflow-clip">
     <div
       ref="bannerContainer"
-      class="flex border border-white transition-[height] transition-[width] duration-500 shrink-0"
+      class="flex border border-white transition-[height_width] duration-500 shrink-0 bg-black"
       :style="{
         width: `${aspect.width}px`,
         height: `${aspect.height}px`,

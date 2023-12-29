@@ -4,7 +4,9 @@ const banner = useState('event', () => ({
   layout: 'top',
   title: '',
   subtitle: '',
-  date: new Date(),
+  date: '',
+  time: '',
+  picture: null,
   venue: '',
   address: '',
   municipality: '',
@@ -57,9 +59,10 @@ watch(aspect, () => {
     <PaneField label="Picture">
       <PanePicture v-model="banner.picture" name="picture" />
     </PaneField>
-    <UFormGroup label="Date and Time" name="date">
-      <UInput v-model="banner.date" type="datetime-local" />
-    </UFormGroup>
+    <PaneDateTime
+      v-model:date="banner.date"
+      v-model:time="banner.time"
+    />
     <UFormGroup label="Venue" name="venue">
       <UTextarea autoresize v-model="banner.venue" :rows="1" placeholder="Town Hall" />
     </UFormGroup>

@@ -5,8 +5,12 @@
 <template>
   <div class="p-6">
     <AppNav />
+    
+    <div class="relative z-10">
+      <slot />
+    </div>
 
-    <slot />
+    <AppDecorativeGrid />
   </div>
 </template>
 
@@ -32,5 +36,9 @@
   --beige: #E9D5CA;
   --black: #000;
   --white: #fff;
+}
+
+.fill-height {
+  height: calc(100vh - var(--nav-safe-area) - 2rem);
 }
 </style>

@@ -12,7 +12,7 @@ useHead({
 </script>
 
 <template>
-  <main class="workspace grid grid-cols-[350px_1fr]">
+  <main class="fill-height grid grid-cols-[350px_1fr]">
     <div class="border border-gray-500 border-r-0 overflow-y-auto">
       <Component :is="`${template.id}Pane`" />
     </div>
@@ -23,16 +23,10 @@ useHead({
       </div>
       <div class="h-full">
         <CanvasContainer>
-          <pre>{{ template }}</pre>
+          <pre class="text-xs text-gray-500">{{ template }}</pre>
           <Component :is="`${template.id}Canvas`" />
         </CanvasContainer>
       </div>
     </div>
   </main>
 </template>
-
-<style lang="scss" scoped>
-.workspace {
-  height: calc(100vh - var(--nav-safe-area) - 2rem);
-}
-</style>

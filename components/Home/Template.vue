@@ -16,9 +16,9 @@ defineProps({
   >
     <Component
       :is="`${template.id}Icon`"
-      class="h-[6rem] w-[6rem]"
+      class="h-[4rem] w-[4rem] xl:h-[6rem] xl:w-[6rem]"
     />
-    <span class="text-2xl xl:text-4xl font-bold mt-auto">
+    <span class="text-xl lg:text-2xl xl:text-4xl font-bold mt-auto">
       {{ template.name }}
     </span>
   </NuxtLink>

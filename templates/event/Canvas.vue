@@ -4,7 +4,7 @@ const banner = useState('event')
 
 <template>
   <div>
-    <pre>
+    <pre class="text-xs text-gray-500">
       {{ banner }}
     </pre>
   </div>

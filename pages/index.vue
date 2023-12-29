@@ -7,15 +7,19 @@ useHead({
 </script>
 
 <template>
-  <main class="mt-20">
-    <h2 class="font-headline text-8xl uppercase">
-      Select a starting template
-    </h2>
+  <main class="fill-height flex items-center">
+    <div class="w-full">
+      <h2 class="font-headline text-7xl/[0.5] xl:text-8xl/[0.5] uppercase mb-10 border-b border-gray-800 -mx-6 px-6">
+        Select a starting template
+      </h2>
 
-    <ul class="grid grid-cols-4 border-r border-white">
-      <li v-for="template in templates" :key="template.id">
-        <HomeTemplate :template="template" />
-      </li>
-    </ul>
+      <div class="border-y border-gray-800 -mx-6 px-6">
+        <ul class="grid grid-cols-4 border-r border-white">
+          <li v-for="template in templates" :key="template.id">
+            <HomeTemplate :template="template" />
+          </li>
+        </ul>
+      </div>
+    </div>
   </main>
 </template>

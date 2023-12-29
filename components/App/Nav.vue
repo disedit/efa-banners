@@ -3,7 +3,7 @@ const template = useTemplate()
 </script>
 
 <template>
-  <nav class="grid grid-cols-4 items-end mb-6">
+  <nav class="grid grid-cols-4 items-end mb-6 relative z-10">
     <NuxtLink to="/">
       <LogosEfa />
     </NuxtLink>

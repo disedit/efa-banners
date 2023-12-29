@@ -11,5 +11,10 @@ export default defineNuxtConfig({
   components: [
     { path: '~/templates', global: true },
     '~/components'
-  ]
+  ],
+
+  vue: {
+    defineModel: true,
+    propsDestructure: true
+  }
 })
