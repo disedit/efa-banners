@@ -15,7 +15,8 @@ const banner = useState('event', () => ({
   color: 'purple',
   textOnImage: false,
   accentOnTitle: false,
-  showForAll: true
+  showForAll: true,
+  logo: null
 }))
 
 /* Layout Options */
@@ -70,10 +71,10 @@ watch(aspect, () => {
       <UTextarea autoresize v-model="banner.address" :rows="1" placeholder="123 Fake Street" />
     </UFormGroup>
     <UFormGroup label="City / Town" name="municipality">
-      <UTextarea autoresize v-model="banner.municipality" :rows="1" placeholder="Va" />
+      <UTextarea autoresize v-model="banner.municipality" :rows="1" placeholder="Brussels" />
     </UFormGroup>
     <UFormGroup label="Country / Region" name="country">
-      <UTextarea autoresize v-model="banner.country" :rows="1" placeholder="Valencian Country" />
+      <UTextarea autoresize v-model="banner.country" :rows="1" placeholder="Belgium" />
     </UFormGroup>
     <UFormGroup label="Extra Details" name="info">
       <UTextarea autoresize v-model="banner.info" :rows="2" />
@@ -87,8 +88,11 @@ watch(aspect, () => {
     <PaneToggle label="Accent Color on Title" borderless>
       <UToggle v-model="banner.accentOnTitle" />
     </PaneToggle>
-    <PaneToggle label="Show For All logo" borderless>
+    <PaneToggle label="Show For All logo">
       <UToggle v-model="banner.showForAll" />
     </PaneToggle>
+    <PaneField label="Add-on Logo">
+      <PaneLogo v-model="banner.logo" />
+    </PaneField>
   </aside>
 </template>

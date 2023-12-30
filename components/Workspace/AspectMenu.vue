@@ -22,13 +22,13 @@ const icons = {
         {{ aspect.description }}
       </span>
     </template>
-    <template #option="{ option: thisAspect }">
-      <Component :is="icons[thisAspect.icon]" class="w-3 mr-1" />
+    <template #option="{ option }">
+      <Component :is="icons[option.icon]" class="w-3 mr-1" />
       <span>
-        {{ thisAspect.name }}
+        {{ option.name }}
       </span>
       <span class="truncate text-gray-500">
-        {{ thisAspect.description }}
+        {{ option.description }}
       </span>
     </template>
   </USelectMenu>

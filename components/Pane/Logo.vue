@@ -1,0 +1,39 @@
+<script setup>
+import { presets } from '#tailwind-config';
+
+const props = defineProps({
+  presets: { type: Array, default: () => [] },
+  modelValue: { type: Object, default: () => null }
+})
+
+const emit = defineEmits(['update:modelValue'])
+
+const logo = computed({
+  get () {
+    return props.modelValue
+  },
+  set (value) {
+    emit('update:modelValue', value)
+  }
+})
+
+const customLogo = computed({
+  get () {
+    if (props.modelValue && props.modelValue.key !== 'custom') return null
+    return props.modelValue.custom
+  },
+  set (picture) {
+    emit('update:modelValue', { ...logo.value, url: picture && picture.blob, custom: picture })
+  }
+})
+
+const defaultLogos = [
+  { key: 'efay', label: 'EFA Youth', url: '/images/logos/efay.svg' },
+  { key: 'euparl', label: 'European Parliament', url: '/images/logos/euparl.svg', sm: '/images/logos/euparl-sm.svg' },
+]
+</script>
+
+<template>
+  <PaneLogoSelector :presets="presets.length ? presets : defaultLogos" v-model="logo" />
+  <PanePicture v-if="logo && logo.key === 'custom'" v-model="customLogo" class="mt-3" />
+</template>
