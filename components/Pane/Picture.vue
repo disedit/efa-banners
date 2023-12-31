@@ -50,7 +50,7 @@ function clearFile () {
 }
 
 const lowResolution = computed(() => {
-  return file.value && (file.value.height < 2500 || file.value.width < 2800)
+  return file.value && (file.value.height < 500 || file.value.width < 800)
 })
 </script>
 
@@ -80,10 +80,10 @@ const lowResolution = computed(() => {
       <div
         @click="selectFile"
         v-if="!file"
-        class="flex flex-col items-center justify-center w-full h-full"
+        class="flex flex-col items-center justify-center w-full h-full text-center"
       >
         <UIcon name="i-heroicons-arrow-up-tray-20-solid" class="text-2xl mb-2 pointer-events-none" />
-        <span class="pointer-events-none">Drag and Drop Picture</span>
+        <span class="pointer-events-none">Drag and drop a picture<br>or click to select one</span>
       </div>
       <div v-else-if="!croppable" class="flex w-full p-3">
         <img :src="file.blob" alt="" class="h-20 w-20 rounded-sm object-cover">
@@ -103,7 +103,7 @@ const lowResolution = computed(() => {
         />
         <button
           @click="clearFile"
-          class="hover:text-red-500 transition"
+          class="hover:text-red-500 hover:bg-red-900/25 rounded-md p-1.5 transition"
         >
           <UIcon name="i-heroicons-trash" />
           Remove image

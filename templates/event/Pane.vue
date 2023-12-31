@@ -1,7 +1,10 @@
 <script setup>
 const aspect = useState('aspect')
+
+/* Banner properties */
 const banner = useState('event', () => ({
   layout: 'top',
+  type: 0,
   title: '',
   subtitle: '',
   date: '',
@@ -41,6 +44,33 @@ const options = computed(() => {
 watch(aspect, () => {
   banner.value.layout = options.value[0].value
 })
+
+/* Banner type */
+const tabs = [
+  { slot: 'event', label: 'Event' },
+  { slot: 'interview', label: 'Interview' }
+]
+
+/* Ratios */
+const ratio = useRatio({ aspect, banner }, {
+  11: {
+    left: 1,
+    top: 2,
+    bottom: .5,
+    right: .75
+  },
+  45: {
+    top: 2,
+    bottom: 1
+  },
+  916: {
+    top: 2,
+    bottom: 1
+  },
+  169: {
+    top: 1
+  }
+})
 </script>
 
 <template>
@@ -58,24 +88,42 @@ watch(aspect, () => {
       <UTextarea autoresize v-model="banner.subtitle" :rows="1" placeholder="Meet & Greet" />
     </UFormGroup>
     <PaneField label="Picture">
-      <PanePicture v-model="banner.picture" name="picture" />
+      <PanePicture v-model="banner.picture" :ratio="ratio" name="picture" />
     </PaneField>
     <PaneDateTime
       v-model:date="banner.date"
       v-model:time="banner.time"
     />
-    <UFormGroup label="Venue" name="venue">
-      <UTextarea autoresize v-model="banner.venue" :rows="1" placeholder="Town Hall" />
-    </UFormGroup>
-    <UFormGroup label="Address" name="address">
-      <UTextarea autoresize v-model="banner.address" :rows="1" placeholder="123 Fake Street" />
-    </UFormGroup>
-    <UFormGroup label="City / Town" name="municipality">
-      <UTextarea autoresize v-model="banner.municipality" :rows="1" placeholder="Brussels" />
-    </UFormGroup>
-    <UFormGroup label="Country / Region" name="country">
-      <UTextarea autoresize v-model="banner.country" :rows="1" placeholder="Belgium" />
-    </UFormGroup>
+    <PaneField>
+      <UTabs :items="tabs" v-model="banner.type">
+        <template #event>
+          <div class="border border-gray-500 rounded-md overflow-hidden">
+            <UFormGroup label="Venue" name="venue">
+              <UTextarea autoresize v-model="banner.venue" :rows="1" placeholder="Town Hall" />
+            </UFormGroup>
+            <UFormGroup label="Address" name="address">
+              <UTextarea autoresize v-model="banner.address" :rows="1" placeholder="123 Fake Street" />
+            </UFormGroup>
+            <UFormGroup label="City / Town" name="municipality">
+              <UTextarea autoresize v-model="banner.municipality" :rows="1" placeholder="Brussels" />
+            </UFormGroup>
+            <UFormGroup label="Country / Region" name="country" class="border-b-0">
+              <UTextarea autoresize v-model="banner.country" :rows="1" placeholder="Belgium" />
+            </UFormGroup>
+          </div>
+        </template>
+        <template #interview>
+          <div class="border border-gray-500 rounded-md">
+            <UFormGroup label="Medium" name="medium">
+              <UTextarea autoresize v-model="banner.medium" :rows="1" placeholder="BBC" />
+            </UFormGroup>
+            <PaneField label="Medium logo">
+              <PaneLogo :presets="[{ key: 'test', label: 'rest' }]" v-model="banner.media" />
+            </PaneField>
+          </div>
+        </template>
+      </UTabs>
+    </PaneField>
     <UFormGroup label="Extra Details" name="info">
       <UTextarea autoresize v-model="banner.info" :rows="2" />
     </UFormGroup>

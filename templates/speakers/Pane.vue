@@ -1,12 +1,16 @@
 <script setup>
 const banner = useState('speakers', () => ({
-  title: ''
+  title: '',
+  speakers: [
+    { name: '', description: '', picture: null }
+  ]
 }))
 </script>
 
 <template>
-  <div>
-    Speakers:
-    <UInput v-model="banner.title" />
-  </div>
+  <aside>
+    <PaneField label="Speakers">
+      <PaneSpeakers v-model="banner.speakers" />
+    </PaneField>
+  </aside>
 </template>

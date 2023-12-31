@@ -23,7 +23,6 @@ useHead({
       </div>
       <div class="h-full">
         <CanvasContainer>
-          <pre class="text-xs text-gray-500">{{ template }}</pre>
           <Component :is="`${template.id}Canvas`" />
         </CanvasContainer>
       </div>

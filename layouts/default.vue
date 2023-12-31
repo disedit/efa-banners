@@ -1,5 +1,9 @@
 <script setup>
-
+useHead({
+  htmlAttrs: {
+    class: 'bg-dark'
+  }
+})
 </script>
 
 <template>

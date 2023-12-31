@@ -1,6 +1,4 @@
 <script setup>
-import { presets } from '#tailwind-config';
-
 const props = defineProps({
   presets: { type: Array, default: () => [] },
   modelValue: { type: Object, default: () => null }
@@ -39,9 +37,9 @@ const defaultLogos = [
     v-model="logo"
   />
   <div v-if="logo && logo.key === 'custom'" class="mt-3">
-  <PanePicture
-    v-model="customLogo"
-    :croppable="false"
-  />
+    <PanePicture
+      v-model="customLogo"
+      :croppable="false"
+    />
   </div>
 </template>
