@@ -15,7 +15,7 @@ const logos = [
   <USelectMenu v-model="logo" :options="logos" by="key">
     <template #label>
       <template v-if="logo">
-        <img v-if="logo.url || logo.sm" :src="logo.sm || logo.url" class="h-5 w-5 fit-contain" />
+        <img v-if="(logo.url || logo.sm) && logo.key != 'custom'" :src="logo.sm || logo.url" class="h-5 w-5 fit-contain" />
         <UIcon v-else-if="logo.icon" :name="logo.icon" class="h-5 w-5" />
         <span v-if="logo" class="truncate">{{ logo.label }}</span>
       </template>

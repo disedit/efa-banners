@@ -19,6 +19,7 @@
     "@nuxt/ui": "^2.11.1",
     "dom-to-image": "^2.6.0",
     "file-saver": "^2.0.5",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "vue-advanced-cropper": "^2.8.8"
   }
 }

@@ -34,6 +34,14 @@ const defaultLogos = [
 </script>
 
 <template>
-  <PaneLogoSelector :presets="presets.length ? presets : defaultLogos" v-model="logo" />
-  <PanePicture v-if="logo && logo.key === 'custom'" v-model="customLogo" class="mt-3" />
+  <PaneLogoSelector
+    :presets="presets.length ? presets : defaultLogos"
+    v-model="logo"
+  />
+  <div v-if="logo && logo.key === 'custom'" class="mt-3">
+  <PanePicture
+    v-model="customLogo"
+    :croppable="false"
+  />
+  </div>
 </template>

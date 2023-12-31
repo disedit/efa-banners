@@ -91,7 +91,7 @@ watch(aspect, () => {
     <PaneToggle label="Show For All logo">
       <UToggle v-model="banner.showForAll" />
     </PaneToggle>
-    <PaneField label="Add-on Logo">
+    <PaneField label="Add-on Logo" borderless>
       <PaneLogo v-model="banner.logo" />
     </PaneField>
   </aside>
