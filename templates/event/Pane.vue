@@ -6,7 +6,7 @@ const banner = useState('event', () => ({
   layout: 'top',
   type: 0,
   title: '',
-  subtitle: '',
+  overtitle: '',
   date: '',
   time: '',
   picture: null,
@@ -22,55 +22,27 @@ const banner = useState('event', () => ({
   logo: null
 }))
 
+/* Ratios */
+const ratio = useRatio(banner, {
+  11: { left: 1, top: 2, bottom: .5, right: .75 },
+  45: { top: 2, bottom: 1 },
+  916: { top: 2, bottom: 1 },
+  169: { top: 1 }
+})
+
 /* Layout Options */
-const baseOptions = [
-  { label: 'Top', value: 'top', icon: 'fluent-textbox-align-top-24-regular' },
-  { label: 'Bottom', value: 'bottom', icon: 'fluent-textbox-align-bottom-24-regular' }
-]
-
-const extraOptions = [
-  { label: 'Left', value: 'left', icon: 'fluent-textbox-align-bottom-rotate-90-24-regular' },
-  { label: 'Right', value: 'right', icon: 'fluent-textbox-align-top-rotate-90-24-regular' }
-]
-
-const options = computed(() => {
-  if (aspect.value.id === '11') {
-    return [...baseOptions, ...extraOptions]
-  }
-
-  return [...baseOptions]
-})
-
-watch(aspect, () => {
-  banner.value.layout = options.value[0].value
-})
+const layouts = useLayouts(banner, [
+  { label: 'Top', value: 'top', aspects: ['11', '45', '916', '169'], icon: 'fluent-textbox-align-top-24-regular' },
+  { label: 'Bottom', value: 'bottom', aspects: ['11', '45', '916'], icon: 'fluent-textbox-align-bottom-24-regular' },
+  { label: 'Left', value: 'left', aspects: ['11'], icon: 'fluent-textbox-align-bottom-rotate-90-24-regular' },
+  { label: 'Right', value: 'right', aspects: ['11'], icon: 'fluent-textbox-align-top-rotate-90-24-regular' }
+])
 
 /* Banner type */
 const tabs = [
   { slot: 'event', label: 'Event' },
   { slot: 'interview', label: 'Interview' }
 ]
-
-/* Ratios */
-const ratio = useRatio({ aspect, banner }, {
-  11: {
-    left: 1,
-    top: 2,
-    bottom: .5,
-    right: .75
-  },
-  45: {
-    top: 2,
-    bottom: 1
-  },
-  916: {
-    top: 2,
-    bottom: 1
-  },
-  169: {
-    top: 1
-  }
-})
 </script>
 
 <template>
@@ -78,14 +50,14 @@ const ratio = useRatio({ aspect, banner }, {
     <PaneField label="Layout">
       <PaneRadioButtons
         v-model="banner.layout"
-        :options="options"
+        :options="layouts"
       />
     </PaneField>
     <UFormGroup label="Event Title" name="title">
       <UTextarea autoresize v-model="banner.title" placeholder="Chat with the Spitzenkandidaten!" :rows="1" />
     </UFormGroup>
-    <UFormGroup label="Type of Event" name="subtitle">
-      <UTextarea autoresize v-model="banner.subtitle" :rows="1" placeholder="Meet & Greet" />
+    <UFormGroup label="Type of Event" name="overtitle">
+      <UTextarea autoresize v-model="banner.overtitle" :rows="1" placeholder="Meet & Greet" />
     </UFormGroup>
     <PaneField label="Picture">
       <PanePicture v-model="banner.picture" :ratio="ratio" name="picture" />
@@ -125,7 +97,7 @@ const ratio = useRatio({ aspect, banner }, {
       </UTabs>
     </PaneField>
     <UFormGroup label="Extra Details" name="info">
-      <UTextarea autoresize v-model="banner.info" :rows="2" />
+      <UTextarea autoresize v-model="banner.info" :rows="1" />
     </UFormGroup>
     <PaneField label="Color">
       <PaneColors v-model="banner.color" name="color" />

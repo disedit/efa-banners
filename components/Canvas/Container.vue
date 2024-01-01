@@ -6,6 +6,7 @@ const scale = ref(1)
 const margin = ref(0)
 
 onMounted(() => {
+  scaleBanner()
   window.addEventListener('resize', scaleBanner)
 })
 
@@ -38,7 +39,7 @@ function scaleBanner() {
 </script>
 
 <template>
-  <div class="flex items-center justify-center p-10 h-full overflow-clip">
+  <div class="flex items-center justify-center p-3 h-full overflow-clip">
     <div
       ref="bannerContainer"
       class="flex border border-white transition-[height_width] duration-500 shrink-0 bg-black overflow-clip"

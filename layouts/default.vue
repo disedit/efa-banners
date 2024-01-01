@@ -7,7 +7,7 @@ useHead({
 </script>
 
 <template>
-  <div class="p-6">
+  <div class="p-6 overflow-hidden">
     <AppNav />
     
     <div class="relative z-10">
@@ -34,7 +34,7 @@ useHead({
 }
 
 :root {
-  --nav-safe-area: 4.85rem;
+  --nav-safe-area: 4.8125rem;
   --purple: #652B80;
   --orange: #FB7959;
   --beige: #E9D5CA;
@@ -43,6 +43,6 @@ useHead({
 }
 
 .fill-height {
-  height: calc(100vh - var(--nav-safe-area) - 2rem);
+  height: calc(100vh - var(--nav-safe-area) - 1.5rem);
 }
 </style>
