@@ -1,16 +1,13 @@
-
-import type { _center } from '#tailwind-config/theme/backgroundPosition';
-
-import type { _flex } from '#tailwind-config/theme';
 <script setup>
 defineProps({
+  colorful: { type: Boolean, default: false },
   append: { type: Object, default: null }
 })
 </script>
 
 <template>
   <footer class="banner-logos">
-    <LogosEfa class="logo-efa" />
+    <LogosEfa :colorful="colorful" class="logo-efa" />
     <div v-if="append" class="logo-append">
       <img :src="append.url" :class="`logo-${append.key}`" />
     </div>

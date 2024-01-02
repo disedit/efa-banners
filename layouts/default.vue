@@ -8,7 +8,7 @@ useHead({
 
 <template>
   <div class="p-6 overflow-hidden">
-    <NuxtLoadingIndicator color="#fff" />
+    <NuxtLoadingIndicator color="var(--purple)" />
     <AppNav />
     
     <div class="relative z-10">

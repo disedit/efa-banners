@@ -7,16 +7,16 @@ const banner = useState('slogan', () => ({
   textSize: 100,
   picture: null,
   color: 'purple',
-  showForAll: true,
+  showForAll: false,
   stylizeForAll: true,
   logo: null
 }))
 
 /* Ratios */
 const ratio = useRatio(banner, {
-  11: { full: 1, left: 1, top: 2, bottom: .5, right: .75 },
-  45: { full: 4 / 5, top: 2, bottom: 1 },
-  916: { full: 9 / 16, top: 2, bottom: 1 }
+  11: { full: 1, left: 1 / 2, top: 2, bottom: 2, right: 1 / 2 },
+  45: { full: 4 / 5, top: 1.6, bottom: 1.6 },
+  916: { full: 9 / 16, top: 1.13, bottom: 1.13 }
 })
 
 /* Layout Options */
