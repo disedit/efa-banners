@@ -43,6 +43,15 @@ export default defineAppConfig({
         base: 'dark:bg-white',
         inactive: 'dark:bg-gray-900'
       }
+    },
+    range: {
+      progress: {
+        background: 'bg-{color}-600 dark:bg-{color}-600'
+      },
+      thumb: {
+        color: 'text-white-600 dark:text-white-600',
+        background: "[&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:dark:bg-white [&::-moz-range-thumb]:bg-current",
+      }
     }
   }
 })

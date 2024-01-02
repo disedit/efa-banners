@@ -5,3 +5,14 @@ $colors: ('purple', 'orange', 'beige');
     --banner-color: var(--#{$color});
   }
 }
+
+.banner {
+  position: relative;
+  --banner-padding: 20px;
+  --empty-picture-color: #000;
+
+  &-headline {
+    font-family: var(--font-headline);
+    text-transform: uppercase;
+  }
+}

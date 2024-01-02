@@ -4,6 +4,7 @@ const aspect = useState('aspect')
 const banner = useState('slogan', () => ({
   layout: 'top',
   text: '',
+  textSize: 100,
   picture: null,
   color: 'purple',
   showForAll: true,
@@ -14,8 +15,8 @@ const banner = useState('slogan', () => ({
 /* Ratios */
 const ratio = useRatio(banner, {
   11: { full: 1, left: 1, top: 2, bottom: .5, right: .75 },
-  45: { full: 1, top: 2, bottom: 1 },
-  916: { full: 1, top: 2, bottom: 1 }
+  45: { full: 4 / 5, top: 2, bottom: 1 },
+  916: { full: 9 / 16, top: 2, bottom: 1 }
 })
 
 /* Layout Options */
@@ -39,12 +40,19 @@ const layouts = useLayouts(banner, [
     <UFormGroup label="Text" name="text">
       <PaneTextEditor v-model="banner.text" />
     </UFormGroup>
+    <PaneField label="Text size" name="textSize">
+      <URange v-model="banner.textSize" :min="50" :max="150" />
+    </PaneField>
     <PaneField label="Picture">
       <PanePicture v-model="banner.picture" :ratio="ratio" name="picture" />
     </PaneField>
-    <PaneField label="Color">
-      <PaneColors v-model="banner.color" name="color" />
-    </PaneField>
+    <Transition name="slide">
+      <div v-if="banner.layout != 'full'">
+        <PaneField label="Color">
+          <PaneColors v-model="banner.color" name="color" />
+        </PaneField>
+      </div>
+    </Transition>
     <PaneToggle label="Show For All wordmark" borderless>
       <UToggle v-model="banner.showForAll" />
     </PaneToggle>
