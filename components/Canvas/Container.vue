@@ -20,7 +20,7 @@ watch(aspect, () => {
 
 function scaleBanner() {
   const minHeight = 450
-  const maxHeight = 950
+  const maxHeight = 1100
   const { minScale, maxScale, minMargin, maxMargin } = aspect.value
   const height = window.innerHeight
   const scaledHeight = (height - minHeight) / (maxHeight - minHeight)
@@ -52,7 +52,7 @@ function scaleBanner() {
     >
       <div
         id="Banner"
-        :class="['h-full', 'w-full', `aspect-${aspect.id}`]"
+        :class="['flex h-full w-full *:h-full *:w-full', `aspect-${aspect.id}`]"
       >
         <slot />
       </div>

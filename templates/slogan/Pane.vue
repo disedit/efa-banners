@@ -7,6 +7,7 @@ const banner = useState('slogan', () => ({
   picture: null,
   color: 'purple',
   showForAll: true,
+  stylizeForAll: true,
   logo: null
 }))
 
@@ -19,7 +20,7 @@ const ratio = useRatio(banner, {
 
 /* Layout Options */
 const layouts = useLayouts(banner, [
-  { label: 'Full picture', value: 'full', aspects: ['11', '45', '916'], icon: 'fluent-textbox-align-top-24-regular' },
+  { label: 'Full picture', value: 'full', aspects: ['11', '45', '916'], icon: 'fluent-textbox-align-middle-24-regular' },
   { label: 'Top', value: 'top', aspects: ['11', '45', '916'], default: true, icon: 'fluent-textbox-align-top-24-regular' },
   { label: 'Bottom', value: 'bottom', aspects: ['11', '45', '916'], icon: 'fluent-textbox-align-bottom-24-regular' },
   { label: 'Left', value: 'left', aspects: ['11'], icon: 'fluent-textbox-align-bottom-rotate-90-24-regular' },
@@ -36,7 +37,7 @@ const layouts = useLayouts(banner, [
       />
     </PaneField>
     <UFormGroup label="Text" name="text">
-      <UTextarea autoresize v-model="banner.text" placeholder="We believe in a Europe for all" :rows="4" />
+      <PaneTextEditor v-model="banner.text" />
     </UFormGroup>
     <PaneField label="Picture">
       <PanePicture v-model="banner.picture" :ratio="ratio" name="picture" />
@@ -44,8 +45,11 @@ const layouts = useLayouts(banner, [
     <PaneField label="Color">
       <PaneColors v-model="banner.color" name="color" />
     </PaneField>
-    <PaneToggle label="Show For All logo">
+    <PaneToggle label="Show For All wordmark" borderless>
       <UToggle v-model="banner.showForAll" />
+    </PaneToggle>
+    <PaneToggle label="Stylize “for all”" help="If checked, this will replace any instance of “for all” in the text with the For All wordmark.">
+      <UToggle v-model="banner.stylizeForAll" />
     </PaneToggle>
     <PaneField label="Add-on Logo" borderless>
       <PaneLogo v-model="banner.logo" />

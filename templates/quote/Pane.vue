@@ -56,7 +56,7 @@ const layouts = useLayouts(banner, [
     <PaneToggle label="Accent Color on Title" borderless>
       <UToggle v-model="banner.accentOnTitle" />
     </PaneToggle>
-    <PaneToggle label="Show For All logo" borderless>
+    <PaneToggle label="Show For All wordmark" borderless>
       <UToggle v-model="banner.showForAll" />
     </PaneToggle>
     <PaneToggle label="Hide logo(s)">

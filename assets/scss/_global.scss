@@ -1,0 +1,14 @@
+:root {
+  --nav-safe-area: #{$nav-safe-area};
+  --purple: #{$purple};
+  --orange: #{$orange};
+  --beige: #{$beige};
+  --black: #{$black};
+  --white: #{$white};
+  --font-base: #{$font-base};
+  --font-headline: #{$font-headline};
+}
+
+.fill-height {
+  height: calc(100vh - var(--nav-safe-area) - 1.5rem);
+}

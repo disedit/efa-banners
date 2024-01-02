@@ -1,0 +1,7 @@
+$colors: ('purple', 'orange', 'beige');
+
+@each $color in $colors {
+  .color-#{$color} {
+    --banner-color: var(--#{$color});
+  }
+}
