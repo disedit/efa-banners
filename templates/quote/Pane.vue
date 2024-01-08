@@ -3,14 +3,15 @@ const aspect = useState('aspect')
 
 const banner = useState('quote', () => ({
   layout: 'top',
-  quote: '',
+  text: '',
   author: '',
   description: '',
+  textSize: 100,
   picture: null,
   color: 'purple',
-  accentOnTitle: false,
+  textColor: 'beige',
   showForAll: true,
-  hideLogos: false,
+  showLogos: true,
   logo: null
 }))
 
@@ -39,7 +40,7 @@ const layouts = useLayouts(banner, [
       />
     </PaneField>
     <UFormGroup label="Quote" name="quote">
-      <UTextarea autoresize v-model="banner.quote" placeholder="We believe in a Europe for all" :rows="4" />
+      <UTextarea autoresize v-model="banner.text" placeholder="We believe in a Europe for all" :rows="4" />
     </UFormGroup>
     <UFormGroup label="Author" name="author">
       <UTextarea autoresize v-model="banner.author" placeholder="Raül Romeva" :rows="1" />
@@ -47,20 +48,23 @@ const layouts = useLayouts(banner, [
     <UFormGroup label="Description" name="description">
       <UTextarea autoresize v-model="banner.description" placeholder="Spitzenkandidat" :rows="1" />
     </UFormGroup>
+    <PaneField label="Text size" name="textSize">
+      <URange v-model="banner.textSize" :min="50" :max="150" />
+    </PaneField>
     <PaneField label="Picture">
       <PanePicture v-model="banner.picture" :ratio="ratio" name="picture" />
     </PaneField>
-    <PaneField label="Color">
+    <PaneField label="Background Color">
       <PaneColors v-model="banner.color" name="color" />
     </PaneField>
-    <PaneToggle label="Accent Color on Title" borderless>
-      <UToggle v-model="banner.accentOnTitle" />
-    </PaneToggle>
+    <PaneField label="Text Color">
+      <PaneColors v-model="banner.color" name="color" />
+    </PaneField>
     <PaneToggle label="Show For All wordmark" borderless>
       <UToggle v-model="banner.showForAll" />
     </PaneToggle>
-    <PaneToggle label="Hide logo(s)">
-      <UToggle v-model="banner.hideLogos" />
+    <PaneToggle label="Show logo(s)">
+      <UToggle v-model="banner.showLogos" />
     </PaneToggle>
     <PaneField label="Add-on Logo" borderless>
       <PaneLogo v-model="banner.logo" />
