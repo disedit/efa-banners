@@ -6,6 +6,7 @@ const banner = useState('event', () => ({
   layout: 'top',
   type: 0,
   title: '',
+  titleSize: 100,
   overtitle: '',
   date: '',
   time: '',
@@ -15,8 +16,10 @@ const banner = useState('event', () => ({
   municipality: '',
   country: '',
   info: '',
+  medium: '',
+  medium_logo: '',
   color: 'purple',
-  textOnImage: false,
+  titleOverPicture: false,
   accentOnTitle: false,
   showForAll: true,
   logo: null
@@ -24,7 +27,7 @@ const banner = useState('event', () => ({
 
 /* Ratios */
 const ratio = useRatio(banner, {
-  11: { left: 1, top: 2, bottom: .5, right: .75 },
+  11: { top: 2, bottom: 2, left: .5, right: .5 },
   45: { top: 2, bottom: 1 },
   916: { top: 2, bottom: 1 },
   169: { top: 1 }
@@ -56,10 +59,13 @@ const tabs = [
     <UFormGroup label="Event Title" name="title">
       <UTextarea autoresize v-model="banner.title" placeholder="Chat with the Spitzenkandidaten!" :rows="1" />
     </UFormGroup>
+    <PaneField label="Text size" name="titleSize">
+      <URange v-model="banner.titleSize" :min="50" :max="150" />
+    </PaneField>
     <UFormGroup label="Type of Event" name="overtitle">
       <UTextarea autoresize v-model="banner.overtitle" :rows="1" placeholder="Meet & Greet" />
     </UFormGroup>
-    <PaneField label="Picture">
+    <PaneField label="Picture" v-if="aspect.id !== '169'">
       <PanePicture v-model="banner.picture" :ratio="ratio" name="picture" />
     </PaneField>
     <PaneDateTime
@@ -90,20 +96,20 @@ const tabs = [
               <UTextarea autoresize v-model="banner.medium" :rows="1" placeholder="BBC" />
             </UFormGroup>
             <PaneField label="Medium logo">
-              <PaneLogo :presets="[{ key: 'test', label: 'rest' }]" v-model="banner.media" />
+              <PaneLogo v-model="banner.medium_logo" />
             </PaneField>
           </div>
         </template>
       </UTabs>
     </PaneField>
-    <UFormGroup label="Extra Details" name="info">
+    <UFormGroup label="Extra Details" name="info"  v-if="aspect.id !== '169'">
       <UTextarea autoresize v-model="banner.info" :rows="1" />
     </UFormGroup>
     <PaneField label="Color">
       <PaneColors v-model="banner.color" name="color" />
     </PaneField>
-    <PaneToggle label="Title over Picture" borderless>
-      <UToggle v-model="banner.textOnImage" />
+    <PaneToggle v-if="banner.layout === 'top' && aspect.id !== '169'" label="Title over Picture" borderless>
+      <UToggle v-model="banner.titleOverPicture" />
     </PaneToggle>
     <PaneToggle label="Accent Color on Title" borderless>
       <UToggle v-model="banner.accentOnTitle" />

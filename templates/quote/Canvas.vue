@@ -1,14 +1,7 @@
 <script setup>
 const banner = useState('quote')
 const textFontSize = useFontSize(banner, 'text', { min: 40, max: 80, maxLength: 200 })
-
-const colorfulLogo = computed(() => {
-  const isBeige = banner.value.color === 'beige';
-  const isFullLayoutWithPicture = banner.value.layout === 'full' && banner.value.picture;
-  const isLeftOrBottomLayout = ['left', 'bottom'].includes(banner.value.layout);
-
-  return isBeige && !isFullLayoutWithPicture && !isLeftOrBottomLayout;
-})
+const { colorfulLogo } = useBannerUtils(banner)
 </script>
 
 <template>
@@ -57,12 +50,6 @@ const colorfulLogo = computed(() => {
   --highlight-color: var(--purple);
   --secondary-color: var(--purple);
   --accent-color: var(--purple);
-}
-
-.layout-full.has-picture {
-  --text-color: var(--white);
-  --highlight-color: var(--white);
-  --secondary-color: var(--white);
 }
 
 .layout-bottom,

@@ -19,6 +19,7 @@ defineProps({
   position: absolute;
   display: flex;
   bottom: 0;
+  left: 0;
   padding: var(--banner-padding);
   align-items: center;
   gap: 30px;

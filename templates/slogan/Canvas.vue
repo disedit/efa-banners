@@ -4,6 +4,7 @@ import ForAllSvg from './forall.svg?raw'
 
 const banner = useState('slogan')
 const headlineFontSize = useFontSize(banner, 'text', { min: 60, max: 100, maxLength: 100 })
+const { colorfulLogo } = useBannerUtils(banner)
 
 const text = computed(() => {
   if (!banner.value.text) return ''
@@ -17,14 +18,6 @@ const text = computed(() => {
   }
 
   return DOMPurify.sanitize(bannerText)
-})
-
-const colorfulLogo = computed(() => {
-  const isBeige = banner.value.color === 'beige';
-  const isFullLayoutWithPicture = banner.value.layout === 'full' && banner.value.picture;
-  const isLeftOrBottomLayout = ['left', 'bottom'].includes(banner.value.layout);
-
-  return isBeige && !isFullLayoutWithPicture && !isLeftOrBottomLayout;
 })
 </script>
 
