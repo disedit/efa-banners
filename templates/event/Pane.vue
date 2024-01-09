@@ -93,10 +93,10 @@ const tabs = [
         <template #interview>
           <div class="border border-gray-500 rounded-md">
             <UFormGroup label="Medium" name="medium">
-              <UTextarea autoresize v-model="banner.medium" :rows="1" placeholder="BBC" />
+              <UTextarea autoresize v-model="banner.medium" :rows="1" placeholder="EuroNews" />
             </UFormGroup>
-            <PaneField label="Medium logo">
-              <PaneLogo v-model="banner.medium_logo" />
+            <PaneField label="Medium logo" borderless>
+              <PaneLogo :presets="[]" v-model="banner.medium_logo" />
             </PaneField>
           </div>
         </template>
@@ -108,7 +108,7 @@ const tabs = [
     <PaneField label="Color">
       <PaneColors v-model="banner.color" name="color" />
     </PaneField>
-    <PaneToggle v-if="banner.layout === 'top' && aspect.id !== '169'" label="Title over Picture" borderless>
+    <PaneToggle v-if="banner.layout === 'top' && aspect.id !== '169' && banner.picture" label="Title over Picture" borderless>
       <UToggle v-model="banner.titleOverPicture" />
     </PaneToggle>
     <PaneToggle label="Accent Color on Title" borderless>

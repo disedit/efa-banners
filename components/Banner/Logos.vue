@@ -8,7 +8,7 @@ defineProps({
 <template>
   <footer class="banner-logos">
     <LogosEfa :colorful="colorful" class="logo-efa" />
-    <div v-if="append" class="logo-append">
+    <div v-if="append && append.url" class="logo-append">
       <img :src="append.url" :class="`logo-${append.key}`" />
     </div>
   </footer>
@@ -26,17 +26,17 @@ defineProps({
 }
 
 .logo-efa {
-  height: 40px;
+  height: 30px;
   width: auto;
 }
 
 .logo-append {
   img {
-    height: 40px;
+    height: 30px;
   }
 
   .logo-efay {
-    height: 50px;
+    height: 40px;
     margin-top: -10px;
   }
 }

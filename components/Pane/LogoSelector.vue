@@ -6,6 +6,7 @@ const { presets } = defineProps({
 const logo = defineModel()
 
 const logos = [
+  { key: 'none', label: 'None' },
   ...presets,
   { key: 'custom', label: 'Upload custom logo', url: '', custom: null, icon: 'i-heroicons-arrow-up-tray-20-solid' }
 ]

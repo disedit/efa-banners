@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-  presets: { type: Array, default: () => [] },
+  presets: { type: Array, default: () => null },
   modelValue: { type: Object, default: () => null }
 })
 
@@ -33,7 +33,7 @@ const defaultLogos = [
 
 <template>
   <PaneLogoSelector
-    :presets="presets.length ? presets : defaultLogos"
+    :presets="presets ? presets : defaultLogos"
     v-model="logo"
   />
   <div v-if="logo && logo.key === 'custom'" class="mt-3">

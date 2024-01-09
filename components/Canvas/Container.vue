@@ -52,7 +52,7 @@ function scaleBanner() {
     >
       <div
         id="Banner"
-        :class="['flex h-full w-full *:h-full *:w-full', `aspect-${aspect.id}`]"
+        :class="['flex h-full w-full *:h-full *:w-full select-none', `aspect-${aspect.id}`]"
       >
         <slot />
       </div>

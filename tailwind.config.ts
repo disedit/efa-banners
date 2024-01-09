@@ -29,7 +29,7 @@ export default <Partial<Config>>{
           900: '#542768',
           950: '#330f43'
         },
-        dark: '#121212'
+        dark: '#2f2f2f'
       }
     }
   }

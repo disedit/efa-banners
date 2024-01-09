@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  max: { type: Number, default: 4 }
+  max: { type: Number, default: 8 }
 })
 
 const speakers = defineModel()
@@ -29,7 +29,7 @@ function moveDown (i) {
       :key="speaker.id"
       class="relative group w-full"
     >
-      <div class="overflow-clip border border-gray-500 bg-dark rounded-md">
+      <div class="overflow-clip border border-gray-500 bg-gray-900 rounded-md">
         <UFormGroup label="Name" :name="`name-${speaker.id}`">
           <UInput v-model="speaker.name" :name="`name-${speaker.id}`" placeholder="Maylis Roßberg" />
         </UFormGroup>

@@ -5,7 +5,7 @@ const titleFontSize = useFontSize(banner, 'title', { min: 40, max: 80, maxLength
 const { colorfulLogo } = useBannerUtils(banner)
 const formatDate = (date) => useDate(date)
 const titleOverPicture = computed(() => {
-  return banner.value.titleOverPicture && banner.value.layout === 'top' && aspect.value.id !== '169'
+  return banner.value.titleOverPicture && banner.value.layout === 'top' && aspect.value.id !== '169' && banner.value.picture
 })
 </script>
 
@@ -161,6 +161,7 @@ const titleOverPicture = computed(() => {
     color: var(--title-color);
 
     h1 {
+      white-space: pre-wrap;
       transform: translateY(.1em);
     }
   }
@@ -195,31 +196,31 @@ const titleOverPicture = computed(() => {
     grid-area: venue;
 
     &-name {
+      white-space: pre-wrap;
       font-weight: bold;
       margin-bottom: 8px;
     }
 
     &-address {
+      white-space: pre-wrap;
       font-size: .8em;
     }
-  }
-
-  &-medium {
-    grid-area: venue;
-    grid-row: span 2;
-    align-self: start;
   }
 
   &-region {
     grid-area: region;
     font-weight: bold;
     line-height: 1.1;
+    white-space: pre-wrap;
   }
 
   &-medium {
     display: flex;
     gap: 10px;
     align-items: center;
+    grid-area: venue;
+    grid-row: span 2;
+    align-self: start;
 
     img {
       height: 20px;
@@ -229,6 +230,7 @@ const titleOverPicture = computed(() => {
   &-info {
     grid-area: info;
     font-size: .8em;
+    white-space: pre-wrap;
   }
 
   &-wordmark {

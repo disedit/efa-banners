@@ -1,6 +1,7 @@
 <script setup>
 const banner = useState('speakers', () => ({
   title: '',
+  titleSize: 100,
   overtitle: '',
   speakers: [
     { name: '', description: '', picture: null }
@@ -14,6 +15,7 @@ const banner = useState('speakers', () => ({
   info: '',
   color: 'purple',
   accentOnTitle: false,
+  showForAll: true,
   logo: null
 }))
 </script>
@@ -23,6 +25,9 @@ const banner = useState('speakers', () => ({
     <UFormGroup label="Event Title" name="title">
       <UTextarea autoresize v-model="banner.title" placeholder="Chat with the Spitzenkandidaten!" :rows="1" />
     </UFormGroup>
+    <PaneField label="Text size" name="titleSize">
+      <URange v-model="banner.titleSize" :min="50" :max="150" />
+    </PaneField>
     <UFormGroup label="Type of Event" name="overtitle">
       <UTextarea autoresize v-model="banner.overtitle" :rows="1" placeholder="Meet & Greet" />
     </UFormGroup>
@@ -51,8 +56,11 @@ const banner = useState('speakers', () => ({
     <PaneField label="Color">
       <PaneColors v-model="banner.color" name="color" />
     </PaneField>
-    <PaneToggle label="Accent Color on Title">
+    <PaneToggle label="Accent Color on Title" borderless>
       <UToggle v-model="banner.accentOnTitle" />
+    </PaneToggle>
+    <PaneToggle label="Show For All wordmark">
+      <UToggle v-model="banner.showForAll" />
     </PaneToggle>
     <PaneField label="Add-on Logo" borderless>
       <PaneLogo v-model="banner.logo" />

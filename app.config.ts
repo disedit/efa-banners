@@ -25,7 +25,7 @@ export default defineAppConfig({
       }
     },
     formGroup: {
-      wrapper: 'border-b border-gray-500 focus-within:bg-gray-900',
+      wrapper: 'border-b border-gray-500 focus-within:bg-dark',
       label: {
         wrapper: '-mb-1',
         base: 'w-full p-3 pb-0 text-gray-400 dark:text-gray-500 leading-none'

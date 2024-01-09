@@ -1,7 +1,7 @@
 <script setup>
 useHead({
   htmlAttrs: {
-    class: 'bg-dark'
+    class: 'bg-gray-900'
   }
 })
 </script>
