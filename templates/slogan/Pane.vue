@@ -53,7 +53,7 @@ const layouts = useLayouts(banner, [
         </PaneField>
       </div>
     </Transition>
-    <PaneToggle label="Show For All wordmark" borderless>
+    <PaneToggle label="Show For All Logo" borderless>
       <UToggle v-model="banner.showForAll" />
     </PaneToggle>
     <PaneToggle label="Stylize “for all”" help="If checked, this will replace any instance of “for all” in the text with the For All wordmark.">

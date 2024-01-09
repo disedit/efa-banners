@@ -9,7 +9,8 @@ const banner = useState('quote', () => ({
   textSize: 100,
   picture: null,
   color: 'purple',
-  textColor: 'beige',
+  accentOnTitle: false,
+  quoteMarks: true,
   showForAll: true,
   showLogos: true,
   logo: null
@@ -57,13 +58,16 @@ const layouts = useLayouts(banner, [
     <PaneField label="Background Color">
       <PaneColors v-model="banner.color" name="color" />
     </PaneField>
-    <PaneField label="Text Color">
-      <PaneColors v-model="banner.color" name="color" />
-    </PaneField>
-    <PaneToggle label="Show For All wordmark" borderless>
+    <PaneToggle label="Accent Color on Title" borderless>
+      <UToggle v-model="banner.accentOnTitle" />
+    </PaneToggle>
+    <PaneToggle label="Include Quotation Marks" borderless>
+      <UToggle v-model="banner.quoteMarks" />
+    </PaneToggle>
+    <PaneToggle label="Show For All Wordmark" borderless>
       <UToggle v-model="banner.showForAll" />
     </PaneToggle>
-    <PaneToggle label="Show logo(s)">
+    <PaneToggle label="Show Logo(s)">
       <UToggle v-model="banner.showLogos" />
     </PaneToggle>
     <PaneField label="Add-on Logo" borderless>

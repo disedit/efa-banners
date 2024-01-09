@@ -114,7 +114,7 @@ const tabs = [
     <PaneToggle label="Accent Color on Title" borderless>
       <UToggle v-model="banner.accentOnTitle" />
     </PaneToggle>
-    <PaneToggle label="Show For All wordmark">
+    <PaneToggle label="Show For All Logo">
       <UToggle v-model="banner.showForAll" />
     </PaneToggle>
     <PaneField label="Add-on Logo" borderless>

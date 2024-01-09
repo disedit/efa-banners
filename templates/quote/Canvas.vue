@@ -1,6 +1,6 @@
 <script setup>
 const banner = useState('quote')
-const textFontSize = useFontSize(banner, 'text', { min: 40, max: 80, maxLength: 200 })
+const textFontSize = useFontSize(banner, 'text', { min: 30, max: 70, maxLength: 200 })
 const { colorfulLogo } = useBannerUtils(banner)
 </script>
 
@@ -9,16 +9,17 @@ const { colorfulLogo } = useBannerUtils(banner)
     `banner`, 'quote', `layout-${banner.layout}`, `color-${banner.color}`,
     { 'has-picture': !!banner.picture },
     { 'has-wordmark': banner.showForAll },
+    { 'accent-on-title': banner.accentOnTitle },
     { 'has-addon-logo': !!banner.logo }
   ]">
-    <div class="quote-picture">
-      <img v-if="banner.picture" :src="banner.picture.crop.result">
+    <div class="quote-picture" v-if="banner.picture">
+      <img :src="banner.picture.crop.result">
     </div>
     <div class="quote-content" :style="{ fontSize: textFontSize }">
       <p class="quote-text">
-        <span class="quote-mark start">&ldquo;</span>
+        <span v-if="banner.quoteMarks" class="quote-mark start">&ldquo;</span>
         <span>{{ banner.text }}</span>
-        <span class="quote-mark end">&rdquo;</span></p>
+        <span v-if="banner.quoteMarks" class="quote-mark end">&rdquo;</span></p>
       <p class="quote-author">{{ banner.author }}</p>
       <p class="quote-description">{{ banner.description }}</p>
     </div>
@@ -36,6 +37,12 @@ const { colorfulLogo } = useBannerUtils(banner)
   --text-color: var(--beige);
   --highlight-color: var(--white);
   --secondary-color: var(--orange);
+
+  &.accent-on-title {
+    --quote-color: var(--orange);
+    --secondary-color: var(--beige);
+    --text-color: var(--white);
+  }
 }
 
 .color-orange {
@@ -43,6 +50,12 @@ const { colorfulLogo } = useBannerUtils(banner)
   --highlight-color: var(--white);
   --secondary-color: var(--purple);
   --accent-color: var(--purple);
+
+  &.accent-on-title {
+    --text-color: var(--white);
+    --quote-color: var(--purple);
+    --accent-color: var(--white);
+  }
 }
 
 .color-beige {
@@ -50,6 +63,13 @@ const { colorfulLogo } = useBannerUtils(banner)
   --highlight-color: var(--purple);
   --secondary-color: var(--purple);
   --accent-color: var(--purple);
+
+  &.accent-on-title {
+    --quote-color: var(--purple);
+    --secondary-color: var(--purple);
+    --text-color: var(--black);
+    --accent-color: var(--black);
+  }
 }
 
 .layout-bottom,
@@ -91,7 +111,7 @@ const { colorfulLogo } = useBannerUtils(banner)
 
   &-mark.start {
     position: absolute;
-    left: -.5em;
+    left: -.4em;
   }
 
   &-text {
@@ -100,18 +120,22 @@ const { colorfulLogo } = useBannerUtils(banner)
     font-weight: bold;
     letter-spacing: -.025em;
     text-wrap: balance;
-    margin-bottom: .2em;
+    margin-bottom: .3em;
+    white-space: pre-wrap;
+    color: var(--quote-color, var(--text-color));
   }
 
   &-author {
     font-weight: bold;
-    font-size: .5em;
-    margin-bottom: .2em;
+    font-size: .4em;
+    margin-bottom: .3em;
     color: var(--accent-color, var(--secondary-color));
+    white-space: pre-wrap;
   }
 
   &-description {
-    font-size: .4em;
+    font-size: .3em;
+    white-space: pre-wrap;
   }
 
   &-wordmark {
@@ -146,22 +170,34 @@ const { colorfulLogo } = useBannerUtils(banner)
   }
 
   &-left {
-    grid-template-columns: 1fr 1.25fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "picture text";
   }
 
   &-right {
-    grid-template-columns: 1.25fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "text picture";
   }
 }
 
+.banner:not(.has-picture) {
+  grid-template-areas: "text";
+
+  .quote-text {
+    font-size: 1.25em;
+  }
+}
+
 .aspect-45 {
   .quote-text {
-    h1 {
-      font-size: 1.25em;
+    font-size: 1.25em;
+  }
+
+  &:not(.has-picture) {
+    .quote-text {
+      font-size: 1.5em;
     }
   }
 }

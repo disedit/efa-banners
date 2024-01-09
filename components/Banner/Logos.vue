@@ -26,17 +26,17 @@ defineProps({
 }
 
 .logo-efa {
-  height: 30px;
+  height: 34px;
   width: auto;
 }
 
 .logo-append {
   img {
-    height: 30px;
+    height: 34px;
   }
 
   .logo-efay {
-    height: 40px;
+    height: 42px;
     margin-top: -10px;
   }
 }

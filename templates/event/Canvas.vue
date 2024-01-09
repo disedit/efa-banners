@@ -45,7 +45,7 @@ const titleOverPicture = computed(() => {
         <div class="event-venue-address" v-if="banner.address">{{ banner.address }}</div>
       </div>
       <div v-else class="event-medium">
-        <span v-if="banner.medium_logo" class="event-medium-logo">
+        <span v-if="banner.medium_logo && banner.medium_logo.key !== 'none'" class="event-medium-logo">
           <img :src="banner.medium_logo.url" alt="">
         </span>
         <span class="event-medium-name">{{ banner.medium }}</span>
@@ -177,7 +177,7 @@ const titleOverPicture = computed(() => {
   &-overtitle {
     flex-grow: 4;
     font-weight: bold;
-    margin: 20px 0;
+    margin-bottom: 20px;
     color: var(--text-color);
   }
 
@@ -299,6 +299,7 @@ const titleOverPicture = computed(() => {
       }
     }
 
+    /* Title on block generic */
     &:not(.title-over-picture) {
       .event-venue,
       .event-region {
@@ -307,6 +308,10 @@ const titleOverPicture = computed(() => {
 
       .event-medium-name {
         order: -1;
+      }
+
+      .event-overtitle {
+        margin-top: 18px;
       }
     }
   }
@@ -377,6 +382,10 @@ const titleOverPicture = computed(() => {
         "region"
         "info";
       font-size: 24px;
+    }
+
+    .event-overtitle {
+      margin-top: 18px;
     }
 
     .event-wordmark {
