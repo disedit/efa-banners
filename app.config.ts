@@ -34,7 +34,7 @@ export default defineAppConfig({
     },
     button: {
       variant: {
-        solid: "text-white dark:text-white bg-{color}-700 dark:bg-{color}-700 hover:bg-{color}-800 dark:hover:bg-{color}-900 disabled:bg-gray-600 disabled:text-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{color}-500"
+        solid: "text-white dark:text-white bg-{color}-700 dark:bg-{color}-700 hover:bg-{color}-800 dark:hover:bg-{color}-900 disabled:bg-gray-600 disabled:text-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{color}-500 dark:disabled:bg-purple-600"
       }
     },
     toggle: {

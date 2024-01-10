@@ -16,5 +16,6 @@ useHead({
     </div>
 
     <AppDecorativeGrid />
+    <UNotifications />
   </div>
 </template>
