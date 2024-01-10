@@ -23,13 +23,13 @@ const banner = useState('speakers', () => ({
 <template>
   <aside>
     <UFormGroup label="Event Title" name="title">
-      <UTextarea autoresize v-model="banner.title" placeholder="Chat with the Spitzenkandidaten!" :rows="1" />
+      <UTextarea autoresize v-model="banner.title" :rows="1" />
     </UFormGroup>
     <PaneField label="Text size" name="titleSize">
       <URange v-model="banner.titleSize" :min="50" :max="150" />
     </PaneField>
     <UFormGroup label="Type of Event" name="overtitle">
-      <UTextarea autoresize v-model="banner.overtitle" :rows="1" placeholder="Meet & Greet" />
+      <UTextarea autoresize v-model="banner.overtitle" :rows="1" />
     </UFormGroup>
     <PaneField label="Speakers">
       <PaneSpeakers v-model="banner.speakers" />
@@ -39,16 +39,16 @@ const banner = useState('speakers', () => ({
       v-model:time="banner.time"
     />
     <UFormGroup label="Venue" name="venue">
-      <UTextarea autoresize v-model="banner.venue" :rows="1" placeholder="Town Hall" />
+      <UTextarea autoresize v-model="banner.venue" :rows="1" />
     </UFormGroup>
     <UFormGroup label="Address" name="address">
-      <UTextarea autoresize v-model="banner.address" :rows="1" placeholder="123 Fake Street" />
+      <UTextarea autoresize v-model="banner.address" :rows="1" />
     </UFormGroup>
     <UFormGroup label="City / Town" name="municipality">
-      <UTextarea autoresize v-model="banner.municipality" :rows="1" placeholder="Brussels" />
+      <UTextarea autoresize v-model="banner.municipality" :rows="1" />
     </UFormGroup>
     <UFormGroup label="Country / Region" name="country">
-      <UTextarea autoresize v-model="banner.country" :rows="1" placeholder="Belgium" />
+      <UTextarea autoresize v-model="banner.country" :rows="1" />
     </UFormGroup>
     <UFormGroup label="Extra Details" name="info">
       <UTextarea autoresize v-model="banner.info" :rows="1" />

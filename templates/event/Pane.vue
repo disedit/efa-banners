@@ -57,13 +57,13 @@ const tabs = [
       />
     </PaneField>
     <UFormGroup label="Event Title" name="title">
-      <UTextarea autoresize v-model="banner.title" placeholder="Chat with the Spitzenkandidaten!" :rows="1" />
+      <UTextarea autoresize v-model="banner.title" :rows="1" />
     </UFormGroup>
     <PaneField label="Text size" name="titleSize">
       <URange v-model="banner.titleSize" :min="50" :max="150" />
     </PaneField>
     <UFormGroup label="Type of Event" name="overtitle">
-      <UTextarea autoresize v-model="banner.overtitle" :rows="1" placeholder="Meet & Greet" />
+      <UTextarea autoresize v-model="banner.overtitle" :rows="1" />
     </UFormGroup>
     <PaneField label="Picture" v-if="aspect.id !== '169'">
       <PanePicture v-model="banner.picture" :ratio="ratio" name="picture" />
@@ -77,23 +77,23 @@ const tabs = [
         <template #event>
           <div class="border border-gray-500 rounded-md overflow-hidden">
             <UFormGroup label="Venue" name="venue">
-              <UTextarea autoresize v-model="banner.venue" :rows="1" placeholder="Town Hall" />
+              <UTextarea autoresize v-model="banner.venue" :rows="1" />
             </UFormGroup>
             <UFormGroup label="Address" name="address">
-              <UTextarea autoresize v-model="banner.address" :rows="1" placeholder="123 Fake Street" />
+              <UTextarea autoresize v-model="banner.address" :rows="1" />
             </UFormGroup>
             <UFormGroup label="City / Town" name="municipality">
-              <UTextarea autoresize v-model="banner.municipality" :rows="1" placeholder="Brussels" />
+              <UTextarea autoresize v-model="banner.municipality" :rows="1" />
             </UFormGroup>
             <UFormGroup label="Country / Region" name="country" class="border-b-0">
-              <UTextarea autoresize v-model="banner.country" :rows="1" placeholder="Belgium" />
+              <UTextarea autoresize v-model="banner.country" :rows="1" />
             </UFormGroup>
           </div>
         </template>
         <template #interview>
           <div class="border border-gray-500 rounded-md">
             <UFormGroup label="Medium" name="medium">
-              <UTextarea autoresize v-model="banner.medium" :rows="1" placeholder="EuroNews" />
+              <UTextarea autoresize v-model="banner.medium" :rows="1" />
             </UFormGroup>
             <PaneField label="Medium logo" borderless>
               <PaneLogo :presets="[]" v-model="banner.medium_logo" />
