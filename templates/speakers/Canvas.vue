@@ -129,13 +129,14 @@ const formatDate = (date) => useDate(date)
 }
 
 .profile {
-  position: relative;
+  display: grid;
   border-right: 1px var(--black) solid;
   border-bottom: 1px var(--black) solid;
 
   &-picture {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    grid-area: 1 / 1;
+    z-index: 10;
 
     img {
       position: absolute;
@@ -147,12 +148,14 @@ const formatDate = (date) => useDate(date)
   }
 
   &-details {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+    position: relative;
+    display: flex;
+    grid-area: 1 / 1;
     padding: 20px;
-    max-width: 80%;
     font-size: 18px;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 20;
   }
 
   &-name {
