@@ -89,7 +89,6 @@ const { colorfulLogo } = useBannerUtils(banner)
     grid-area: picture;
     display: flex;
     position: relative;
-    background: var(--empty-picture-color);
 
     img {
       position: absolute;

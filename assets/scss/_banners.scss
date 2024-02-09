@@ -9,7 +9,6 @@ $colors: ('purple', 'orange', 'beige');
 .banner {
   position: relative;
   --banner-padding: 30px;
-  --empty-picture-color: #75797d;
 
   &-headline {
     font-family: var(--font-headline);
