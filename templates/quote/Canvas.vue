@@ -110,14 +110,18 @@ const { colorfulLogo } = useBannerUtils(banner)
 
   &-mark.start {
     position: absolute;
-    left: -.4em;
+    left: -.5em;
+  }
+
+  &-mark.end {
+    margin-inline-start: .1em;
   }
 
   &-text {
     position: relative;
     font-size: 1em;
     font-weight: bold;
-    letter-spacing: -.025em;
+    letter-spacing: -.01em;
     text-wrap: balance;
     margin-bottom: .3em;
     white-space: pre-wrap;
