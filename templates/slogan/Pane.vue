@@ -9,7 +9,8 @@ const banner = useState('slogan', () => ({
   color: 'purple',
   showForAll: false,
   stylizeForAll: true,
-  logo: null
+  logos: [],
+  disclaimer: null
 }))
 
 /* Ratios */
@@ -59,8 +60,7 @@ const layouts = useLayouts(banner, [
     <PaneToggle label="Stylize “for all”" help="If checked, this will replace any instance of “for all” in the text with the For All wordmark.">
       <UToggle v-model="banner.stylizeForAll" />
     </PaneToggle>
-    <PaneField label="Add-on Logo" borderless>
-      <PaneLogo v-model="banner.logo" />
-    </PaneField>
+    <PaneMultiLogo v-model="banner.logos" />
+    <PaneDisclaimer v-model="banner.disclaimer" />
   </aside>
 </template>

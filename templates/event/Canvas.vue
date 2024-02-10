@@ -60,7 +60,7 @@ const titleOverPicture = computed(() => {
       <LogosForAll />
     </div>
     <div class="banner-footer"> 
-      <BannerLogos :colorful="colorfulLogo" :append="banner.logo" />
+      <BannerLogos :colorful="colorfulLogo" :append="banner.logos" :disclaimer="banner.disclaimer" />
     </div>
   </div>
 </template>

@@ -13,7 +13,8 @@ const banner = useState('quote', () => ({
   quoteMarks: true,
   showForAll: true,
   showLogos: true,
-  logo: null
+  logos: [],
+  disclaimer: null
 }))
 
 /* Ratios */
@@ -70,8 +71,7 @@ const layouts = useLayouts(banner, [
     <PaneToggle label="Show Logo(s)">
       <UToggle v-model="banner.showLogos" />
     </PaneToggle>
-    <PaneField label="Add-on Logo" borderless>
-      <PaneLogo v-model="banner.logo" />
-    </PaneField>
+    <PaneMultiLogo v-model="banner.logos" />
+    <PaneDisclaimer v-model="banner.disclaimer" />
   </aside>
 </template>

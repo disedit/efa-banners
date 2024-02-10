@@ -22,7 +22,8 @@ const banner = useState('event', () => ({
   titleOverPicture: false,
   accentOnTitle: false,
   showForAll: true,
-  logo: null
+  logos: [],
+  disclaimer: null
 }))
 
 /* Ratios */
@@ -117,8 +118,7 @@ const tabs = [
     <PaneToggle label="Show For All Logo">
       <UToggle v-model="banner.showForAll" />
     </PaneToggle>
-    <PaneField label="Add-on Logo" borderless>
-      <PaneLogo v-model="banner.logo" />
-    </PaneField>
+    <PaneMultiLogo v-model="banner.logos" />
+    <PaneDisclaimer v-model="banner.disclaimer" />
   </aside>
 </template>

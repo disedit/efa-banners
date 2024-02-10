@@ -27,7 +27,7 @@ const { colorfulLogo } = useBannerUtils(banner)
       <LogosForAll />
     </div>
     <div class="banner-footer" v-if="banner.showLogos"> 
-      <BannerLogos :colorful="colorfulLogo" :append="banner.logo" />
+      <BannerLogos :colorful="colorfulLogo" :append="banner.logos" :disclaimer="banner.disclaimer" />
     </div>
   </div>
 </template>

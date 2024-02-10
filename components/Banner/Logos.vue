@@ -1,28 +1,46 @@
 <script setup>
 defineProps({
   colorful: { type: Boolean, default: false },
-  append: { type: Object, default: null }
+  append: { type: Array, default: null },
+  disclaimer: { type: String, default: null }
 })
 </script>
 
 <template>
-  <footer class="banner-logos">
-    <LogosEfa :colorful="colorful" class="logo-efa" />
-    <div v-if="append && append.url" class="logo-append">
-      <img :src="append.url" :class="`logo-${append.key}`" />
+  <footer class="banner-footer">
+    <div class="banner-logos">
+      <LogosEfa :colorful="colorful" class="logo-efa" />
+      <div
+        v-for="item in append"
+        class="logo-append"
+      >
+        <img v-if="item.logo && item.logo.url" :src="item.logo.url" :class="`logo-${item.logo.key}`" />
+      </div>
+    </div>
+    <div v-if="disclaimer" class="banner-disclaimer">
+      {{ disclaimer }}
     </div>
   </footer>
 </template>
 
 <style lang="scss" scoped>
-.banner-logos {
+.banner-footer {
   position: absolute;
-  display: flex;
   bottom: 0;
   left: 0;
   padding: var(--banner-padding);
+}
+
+.banner-logos {
+  display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
+}
+
+.banner-disclaimer {
+  line-height: 1.1;
+  font-size: 12px;
+  margin-top: 12px;
 }
 
 .logo-efa {
