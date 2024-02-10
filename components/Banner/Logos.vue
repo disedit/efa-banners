@@ -7,7 +7,7 @@ defineProps({
 </script>
 
 <template>
-  <footer class="banner-footer">
+  <div class="banner-footer-logos">
     <div class="banner-logos">
       <LogosEfa :colorful="colorful" class="logo-efa" />
       <div
@@ -20,11 +20,11 @@ defineProps({
     <div v-if="disclaimer" class="banner-disclaimer">
       {{ disclaimer }}
     </div>
-  </footer>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.banner-footer {
+.banner-footer-logos {
   position: absolute;
   bottom: 0;
   left: 0;

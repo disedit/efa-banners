@@ -10,7 +10,8 @@ const { colorfulLogo } = useBannerUtils(banner)
     { 'has-picture': !!banner.picture },
     { 'has-wordmark': banner.showForAll },
     { 'accent-on-title': banner.accentOnTitle },
-    { 'has-addon-logo': !!banner.logo }
+    { 'has-addon-logo': !!banner.logo },
+    { 'has-disclaimer': !!banner.disclaimer }
   ]">
     <div class="quote-picture" v-if="banner.picture">
       <img :src="banner.picture.crop.result">
@@ -162,7 +163,7 @@ const { colorfulLogo } = useBannerUtils(banner)
     grid-template-areas: "picture" "text";
 
     .quote-content {
-      margin-bottom: 70px;
+      margin-bottom: var(--footer-safe-area);
     }
   }
 

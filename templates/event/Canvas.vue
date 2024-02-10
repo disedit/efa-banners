@@ -16,7 +16,8 @@ const titleOverPicture = computed(() => {
     { 'has-wordmark': banner.showForAll },
     { 'title-over-picture': titleOverPicture },
     { 'accent-on-title': banner.accentOnTitle },
-    { 'has-addon-logo': !!banner.logo }
+    { 'has-addon-logo': !!banner.logo },
+    { 'has-disclaimer': !!banner.disclaimer }
   ]">
     <div class="event-picture">
       <img v-if="banner.picture" :src="banner.picture.crop.result">
@@ -254,7 +255,7 @@ const titleOverPicture = computed(() => {
 
     /* Title on block with wordmark */
     .event-content {
-      margin-bottom: 70px;
+      margin-bottom: var(--footer-safe-area);
       grid-template-rows: auto auto 1fr auto;
       grid-template-areas:
         "details details"
@@ -352,7 +353,7 @@ const titleOverPicture = computed(() => {
     &:not(.has-picture) {
       .event-content {
         grid-template-rows: 1fr auto auto auto auto !important;
-        margin-bottom: 70px;
+        margin-bottom: var(--footer-safe-area);
       }
     }
   }

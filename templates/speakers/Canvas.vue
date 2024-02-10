@@ -12,6 +12,7 @@ const formatDate = (date) => useDate(date)
     { 'has-wordmark': banner.showForAll },
     { 'accent-on-title': banner.accentOnTitle },
     { 'has-addon-logo': !!banner.logo },
+    { 'has-disclaimer': !!banner.disclaimer }
   ]">
     <div class="profiles">
       <div v-for="speaker in banner.speakers" :key="speaker.name" class="profile">
@@ -197,7 +198,7 @@ const formatDate = (date) => useDate(date)
   z-index: 10;
   gap: 20px;
   font-size: 21px;
-  margin-bottom: 70px;
+  margin-bottom: var(--footer-safe-area);
 
   &-title {
     grid-area: title;

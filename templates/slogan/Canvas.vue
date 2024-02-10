@@ -26,7 +26,8 @@ const text = computed(() => {
     `banner`, 'slogan', `layout-${banner.layout}`, `color-${banner.color}`,
     { 'has-picture': !!banner.picture },
     { 'has-wordmark': banner.showForAll },
-    { 'has-addon-logo': !!banner.logo }
+    { 'has-addon-logo': !!banner.logo },
+    { 'has-disclaimer': !!banner.disclaimer }
   ]">
     <div class="slogan-picture">
       <img v-if="banner.picture" :src="banner.picture.crop.result">

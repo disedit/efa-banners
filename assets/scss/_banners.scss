@@ -9,9 +9,24 @@ $colors: ('purple', 'orange', 'beige');
 .banner {
   position: relative;
   --banner-padding: 30px;
+  --footer-safe-area: 70px;
 
   &-headline {
     font-family: var(--font-headline);
     text-transform: uppercase;
+  }
+
+  &.has-disclaimer {
+    --footer-safe-area: 100px;
+  }
+
+  &.has-wordmark {
+    .banner-footer-logos {
+      right: 167px;
+    }
+  }
+
+  &.has-disclaimer.has-wordmark {
+    --footer-safe-area: 110px;
   }
 }
