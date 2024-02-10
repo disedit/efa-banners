@@ -3,7 +3,8 @@ const props = defineProps({
   modelValue: { type: Object, default: null },
   name: { type: String, default: 'picture' },
   ratio: { type: Number, default: 1 },
-  croppable: { type: Boolean, default: true }
+  croppable: { type: Boolean, default: true },
+  minResolution: { type: Object, default: () => ({ width: 800, height: 500 }) }
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -50,7 +51,7 @@ function clearFile () {
 }
 
 const lowResolution = computed(() => {
-  return file.value && (file.value.height < 500 || file.value.width < 800)
+  return file.value && (file.value.height < props.minResolution.height || file.value.width < props.minResolution.width)
 })
 </script>
 
@@ -113,7 +114,7 @@ const lowResolution = computed(() => {
   <UAlert
     v-if="lowResolution"
     icon="i-heroicons-exclamation-circle"
-    description="Picture will be pixelated. You should choose a picture that is at least 800px wide."
+    :description="`Picture will be pixelated. You should choose a picture that is at least ${minResolution.width}px wide and ${minResolution.height}px tall.`"
     title="Low resolution"
     color="amber"
     variant="subtle"

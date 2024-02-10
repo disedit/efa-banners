@@ -40,6 +40,7 @@ const defaultLogos = [
     <PanePicture
       v-model="customLogo"
       :croppable="false"
+      :min-resolution="{ width: 200, height: 100 }"
     />
   </div>
 </template>
