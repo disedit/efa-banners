@@ -19,7 +19,7 @@ function deleteLogo (i) {
         </div>
         <UButton
           icon="i-heroicons-minus"
-          color="gray"  
+          color="gray"
           @click="deleteLogo(i)"
           title="Delete logo"
           class="self-start"

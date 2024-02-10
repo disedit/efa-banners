@@ -30,9 +30,12 @@ const titleOverPicture = computed(() => {
     </div>
     <div class="event-content">
       <div class="event-details">
-        <div class="event-datetime">
+        <div v-if="!banner.customDate && (banner.date || banner.time)" class="event-datetime">
           <div class="event-datetime-date" v-if="banner.date">{{ formatDate(banner.date) }}</div>
           <div class="event-datetime-time" v-if="banner.time">{{ banner.time }}</div>
+        </div>
+        <div v-else-if="banner.customDate" class="event-datetime event-datetime-custom">
+          {{ banner.customDate }}
         </div>
       </div>
       <div v-if="!titleOverPicture" class="event-title">
@@ -189,6 +192,10 @@ const titleOverPicture = computed(() => {
 
     &-date {
       margin-right: auto;
+    }
+
+    &-custom {
+      white-space: pre-wrap;
     }
   }
 

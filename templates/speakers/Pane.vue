@@ -4,10 +4,11 @@ const banner = useState('speakers', () => ({
   titleSize: 100,
   overtitle: '',
   speakers: [
-    { name: '', description: '', picture: null }
+    { id: 1, name: '', description: '', picture: null }
   ],
   date: '',
   time: '',
+  customDate: null,
   venue: '',
   address: '',
   municipality: '',
@@ -38,6 +39,7 @@ const banner = useState('speakers', () => ({
     <PaneDateTime
       v-model:date="banner.date"
       v-model:time="banner.time"
+      v-model:custom="banner.customDate"
     />
     <UFormGroup label="Venue" name="venue">
       <UTextarea autoresize v-model="banner.venue" :rows="1" />

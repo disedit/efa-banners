@@ -30,11 +30,14 @@ const formatDate = (date) => useDate(date)
       </div>
     </div>
     <div class="event">
-      <div class="event-details">
+      <div :class="['event-details', { 'has-overtitle': !!banner.overtitle }]">
         <div class="event-overtitle" v-if="banner.overtitle">{{ banner.overtitle }}</div>
-        <div class="event-datetime">
+        <div v-if="!banner.customDate && (banner.date || banner.time)" class="event-datetime">
           <div class="event-datetime-date" v-if="banner.date">{{ formatDate(banner.date) }}</div>
           <div class="event-datetime-time" v-if="banner.time">{{ banner.time }}</div>
+        </div>
+        <div v-else class="event-datetime event-datetime-custom">
+          {{ banner.customDate }}
         </div>
       </div>
       <div class="event-title" :style="{ fontSize: titleFontSize }">
@@ -216,6 +219,14 @@ const formatDate = (date) => useDate(date)
     color: var(--accent-color, var(--secondary-color));
     gap: 20px;
     font-weight: bold;
+
+    &.has-overtitle {
+      .event-datetime-custom {
+        text-align: right;
+        flex-grow: 1;
+        justify-content: end;
+      }
+    }
   }
 
   &-overtitle {
@@ -231,6 +242,11 @@ const formatDate = (date) => useDate(date)
 
     &-date {
       margin-right: auto;
+    }
+
+    &-custom {
+      white-space: pre-wrap;
+      line-height: 1.25;
     }
   }
 

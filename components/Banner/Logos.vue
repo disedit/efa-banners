@@ -7,7 +7,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="banner-footer-logos">
+  <div :class="['banner-footer-logos', { colorful }]">
     <div class="banner-logos">
       <LogosEfa :colorful="colorful" class="logo-efa" />
       <div
@@ -29,6 +29,10 @@ defineProps({
   bottom: 0;
   left: 0;
   padding: var(--banner-padding);
+
+  &.colorful {
+    color: var(--black);
+  }
 }
 
 .banner-logos {

@@ -29,4 +29,11 @@ $colors: ('purple', 'orange', 'beige');
   &.has-disclaimer.has-wordmark {
     --footer-safe-area: 110px;
   }
+
+  &.layout-right.has-picture,
+  &.layout-left.has-picture {
+    .banner-footer-logos {
+      right: 360px;
+    }
+  }
 }
