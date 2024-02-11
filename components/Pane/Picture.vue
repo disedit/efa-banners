@@ -64,7 +64,7 @@ const lowResolution = computed(() => {
     @dragleave.prevent="isDragging = false"
     @dragenter.prevent="isDragging = true"
     :class="[
-      'flex min-h-[7rem] items-center justify-center border border-dashed rounded-md text-sm transition',
+      'flex min-h-[7rem] items-center justify-center border border-dashed rounded-md text-sm transition focus-within:border-purple-500 focus-within:text-primary-500 focus-within:bg-purple-900/25',
       { 'border-purple-500 text-primary-500 bg-purple-900/25' : isDragging },
       { 'border-gray-600 text-gray-600' : !isDragging },
       { 'cursor-pointer hover:border-purple-500 hover:text-primary-500 hover:bg-purple-900/25' : !file || !croppable }

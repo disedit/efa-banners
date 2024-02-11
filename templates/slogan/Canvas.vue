@@ -160,10 +160,6 @@ const text = computed(() => {
     grid-template-rows: 1fr 1.25fr;
     grid-template-areas: "picture" "text";
 
-    .slogan-picture {
-      border-bottom: 1px var(--black) solid;
-    }
-
     .slogan-text {
       margin-bottom: 50px;
     }
