@@ -29,7 +29,7 @@ const titleOverPicture = computed(() => {
       </div>
     </div>
     <div class="event-content">
-      <div class="event-details">
+      <div :class="['event-details', `align-date-${banner.dateAlign}`]">
         <div v-if="!banner.customDate && (banner.date || banner.time)" class="event-datetime">
           <div class="event-datetime-date" v-if="banner.date">{{ formatDate(banner.date) }}</div>
           <div class="event-datetime-time" v-if="banner.time">{{ banner.time }}</div>
@@ -190,10 +190,6 @@ const titleOverPicture = computed(() => {
     flex-grow: 1;
     white-space: nowrap;
 
-    &-date {
-      margin-right: auto;
-    }
-
     &-custom {
       white-space: pre-wrap;
     }
@@ -250,6 +246,20 @@ const titleOverPicture = computed(() => {
       height: 200px;
       width: 200px;
       transform: rotate(-10deg);
+    }
+  }
+}
+
+.align-date {
+  &-center {
+    .event-datetime-date {
+      margin-right: auto;
+    }
+  }
+
+  &-right {
+    .event-datetime {
+      justify-content: end;
     }
   }
 }

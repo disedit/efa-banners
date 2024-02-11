@@ -221,7 +221,7 @@ const formatDate = (date) => useDate(date)
     font-weight: bold;
 
     &.has-overtitle {
-      .event-datetime-custom {
+      .event-datetime {
         text-align: right;
         flex-grow: 1;
         justify-content: end;
@@ -239,10 +239,6 @@ const formatDate = (date) => useDate(date)
     gap: 20px;
     flex-grow: 1;
     white-space: nowrap;
-
-    &-date {
-      margin-right: auto;
-    }
 
     &-custom {
       white-space: pre-wrap;

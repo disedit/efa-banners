@@ -2,6 +2,7 @@
 const date = defineModel('date')
 const time = defineModel('time')
 const custom = defineModel('custom')
+const align = defineModel('align')
 
 const customDate = ref(false)
 const customDateInput = ref(null)
@@ -9,10 +10,21 @@ watch(customDate, (isCustom) => {
   if (!isCustom) {
     custom.value = null
   } else {
+    align.value = align.value === 'center' ? 'left' : align.value
     nextTick(() => {
       customDateInput.value.$refs.textarea.focus()
     })
   }
+})
+
+const alignOptions = [
+  { label: 'Left', value: 'left', icon: 'bi-arrow-bar-left', availableInCustom: true },
+  { label: 'Expanded', value: 'center', icon: 'bi-arrows-expand-vertical', availableInCustom: false },
+  { label: 'Right', value: 'right', icon: 'bi-arrow-bar-right', availableInCustom: true },
+]
+
+const availableAlignOptions = computed(() => {
+  return alignOptions.filter((option) => customDate.value ? option.availableInCustom : true)
 })
 </script>
 
@@ -38,7 +50,13 @@ watch(customDate, (isCustom) => {
       :rows="1"
     />
   </UFormGroup>
-  <PaneToggle label="Custom date">
+  <PaneToggle label="Custom date" :class="{ 'border-gray-700 border-dashed': !!align }">
     <UToggle v-model="customDate" />
   </PaneToggle>
+  <PaneField v-if="align" label="Date alignment">
+    <PaneRadioButtons
+      v-model="align"
+      :options="availableAlignOptions"
+    />
+  </PaneField>
 </template>

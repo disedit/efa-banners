@@ -11,6 +11,7 @@ const banner = useState('event', () => ({
   date: '',
   time: '',
   customDate: null,
+  dateAlign: 'center',
   picture: null,
   venue: '',
   address: '',
@@ -74,6 +75,7 @@ const tabs = [
       v-model:date="banner.date"
       v-model:time="banner.time"
       v-model:custom="banner.customDate"
+      v-model:align="banner.dateAlign"
     />
     <PaneField>
       <UTabs :items="tabs" v-model="banner.type">
